@@ -65,7 +65,7 @@ export default function Page() {
             </form>
   
             <p className="mt-10 text-center text-sm/6 text-gray-500">
-              Don't have an account{' '}
+              Don&#39;t have an account{' '}
               <Link href="/register" className="font-semibold text-primary">
                 Register
               </Link>
