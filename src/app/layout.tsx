@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+
+import 'antd/dist/reset.css';
 import "./globals.css";
 
 const geistSans = localFont({

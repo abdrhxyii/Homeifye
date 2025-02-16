@@ -9,10 +9,19 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@supabase/auth-helpers-nextjs": "^0.10.0",
+    "@supabase/ssr": "^0.5.2",
+    "@supabase/supabase-js": "^2.47.10",
+    "antd": "^5.23.0",
+    "firebase": "^11.3.1",
     "lucide-react": "^0.468.0",
+    "mongodb": "^6.13.0",
+    "mongoose": "^8.10.1",
     "next": "14.2.17",
+    "nookies": "^2.5.2",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "zustand": "^5.0.3"
   },
   "devDependencies": {
     "@types/node": "^20",

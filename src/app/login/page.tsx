@@ -1,8 +1,44 @@
 'use client';
 import Navbar from "@/components/navbar";
+import { auth, googleProvider, signInWithPopup } from "@/lib/firebase";
+import { useAuthStore } from "@/store/useAuthStore";
 import Link from "next/link";
+import { setCookie } from "nookies";
+import { useEffect, useState } from "react";
 
 export default function Page() {
+    const [error, setError] = useState(null);
+    const { checkAuthStatus } = useAuthStore();
+
+    useEffect(() => {
+      checkAuthStatus();
+    }, [checkAuthStatus])
+  
+    const handleGoogleSignIn = async () => {
+      try {
+        const result = await signInWithPopup(auth, googleProvider);
+        const user = result.user;
+        const token = await user.getIdToken();
+        setCookie(null, 'token', token, {
+          path: '/',
+          maxAge: 30 * 24 * 60 * 60, 
+        });
+
+        const profileImage = user.photoURL ?? '/userdefault.jpg';
+        setCookie(null, 'profileImage', profileImage, {
+          path: '/',
+          maxAge: 30 * 24 * 60 * 60,
+        });
+        
+        checkAuthStatus()
+        console.log('Google Sign-In Success:', user);
+        alert(`Welcome ${user.displayName}`);
+      } catch (error: any) {
+        console.error('Google Sign-In Error:', error.message);
+        setError(error.message);
+      }
+    };
+
     return (
       <>
       <Navbar/>
@@ -53,7 +89,9 @@ export default function Page() {
                   />
                 </div>
               </div>
-  
+              {error && (
+                <p className="text-red-500">{error}</p>
+              )}
               <div>
                 <button
                   type="submit"
@@ -63,7 +101,16 @@ export default function Page() {
                 </button>
               </div>
             </form>
-  
+            <div className="mt-6">
+          <button
+              type="button"
+              onClick={handleGoogleSignIn}
+              className="flex w-full items-center justify-center space-x-2 rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50"
+            >
+              <img src="/google.png" alt="Google" className="h-5 w-5" />
+              <span>Sign in with Google</span>
+            </button>
+          </div>
             <p className="mt-10 text-center text-sm/6 text-gray-500">
               Don&#39;t have an account{' '}
               <Link href="/register" className="font-semibold text-primary">

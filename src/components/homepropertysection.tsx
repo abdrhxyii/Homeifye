@@ -15,6 +15,30 @@ export default function HomePropertySection() {
         <PropertyCard />
         <PropertyCard />
         <PropertyCard />
+        <PropertyCard />
+        <PropertyCard />
+        <PropertyCard />
+        <PropertyCard />
+        <PropertyCard />
+        <PropertyCard />
+        <PropertyCard />
+        <PropertyCard />
+        <PropertyCard />
+        <PropertyCard />
+        <PropertyCard />
+        <PropertyCard />
+        <PropertyCard />
+        <PropertyCard />
+        <PropertyCard />
+        <PropertyCard />
+        <PropertyCard />
+        <PropertyCard />
+        <PropertyCard />
+        <PropertyCard />
+        <PropertyCard />
+        <PropertyCard />
+        <PropertyCard />
+        <PropertyCard />
       </div>
     </section>
   );

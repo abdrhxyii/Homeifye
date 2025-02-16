@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { MapPin, Bed, Wifi, Star, Heart } from 'lucide-react';
+import { MapPin, Bed, Wifi, Heart } from 'lucide-react';
 
 const PropertyCard = () => {
   return (
@@ -23,12 +23,6 @@ const PropertyCard = () => {
 
         <div className="flex justify-between items-center mb-2 text-gray-600 text-xs sm:text-sm">
           <p className="text-lg sm:text-xl font-bold text-gray-900">$772,00</p>
-
-          <div className="flex items-center">
-            <Star size={16} className="text-yellow-500" />
-            <span className="ml-1 font-medium">4.9</span>
-            <span className="ml-1">(202 reviews)</span>
-          </div>
         </div>
 
         <div className="flex justify-between items-center text-gray-500 mt-3 text-xs sm:text-sm">
